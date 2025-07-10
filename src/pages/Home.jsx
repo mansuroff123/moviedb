@@ -31,7 +31,7 @@ function Home() {
       </form>
       <div className="movie-grid">
         {movies.map((movie) => (
-          movie.title.toLowerCase().includes(searchQuery) && <MovieCard movie={movie} key={movie.id} />
+          movie.title.toLowerCase().includes(searchQuery.toLowerCase()) && <MovieCard movie={movie} key={movie.id} />
         ))}
       </div>
     </div>
