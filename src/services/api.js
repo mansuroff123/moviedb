@@ -17,4 +17,14 @@ export const searchMovies = async (query) => {
   return data.results;
 };
 
+
+// Animation
+export const getAnimationMovies = async () => {
+  const response = await fetch (
+    `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=16`
+  );
+  const data = await response.json();
+  return data.results;
+};
+
 // https://api.themoviedb.org/3/movie/popular?api_key=b6c855953e6ab59244d0d2488c301375
