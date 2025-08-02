@@ -66,7 +66,7 @@ function Home() {
       ) : (
         <div>
           {movies.length === 0 ? (
-            <NoResults query={searchQuery}/>
+            <NoResults />
           ) : (
             <div className="movies-grid">
               {movies.map((movie) => (
