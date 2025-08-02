@@ -1,7 +1,8 @@
 import MovieCard from "../components/MovieCard";
 import { useEffect, useState } from "react";
 import "../css/Home.css"
-import { getPopularMovies, getAnimationMovies, searchMovies } from "../services/api";
+import { getAnimationMovies, searchMovies } from "../services/api";
+import NoResults from "../components/noResults";
 
 function Home() {
   const [searchQuery, setSearchQuery] = useState("");
@@ -63,10 +64,16 @@ function Home() {
       {loading ? (
         <div className="loading">Loading...</div>
       ) : (
-        <div className="movies-grid">
-          {movies.map((movie) => (
-            <MovieCard movie={movie} key={movie.id} />
-          ))}
+        <div>
+          {movies.length === 0 ? (
+            <NoResults query={searchQuery}/>
+          ) : (
+            <div className="movies-grid">
+              {movies.map((movie) => (
+                <MovieCard movie={movie} key={movie.id} />
+              ))}
+            </div>
+          )}
         </div>
       )}
 
